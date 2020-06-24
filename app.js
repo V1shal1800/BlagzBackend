@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const blogRoutes = require('./api/routes/blogs');
-const adminRoutes = require('./api/routes/admin');
 
 mongoose.connect('mongodb+srv://Admin:NewBlogz@cluster0-0xnpl.mongodb.net/<dbname>?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
@@ -30,7 +29,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/blogs', blogRoutes);
-app.use('/admin', adminRoutes);
 
 app.use((req, res, next) => {
 	const error = new Error('Not Found');
